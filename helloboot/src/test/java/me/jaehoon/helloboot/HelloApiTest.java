@@ -8,6 +8,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
+// Annotation
+// Retention
+// Target
+// Test
+
 class HelloApiTest {
     @Test
     void helloApiTest() {
@@ -16,7 +21,7 @@ class HelloApiTest {
         TestRestTemplate restTemplate = new TestRestTemplate();
 
         ResponseEntity<String> respEntity =
-                restTemplate.getForEntity("http://localhost:8080/hello?name={name}", String.class, "jaehoon");
+                restTemplate.getForEntity("http://localhost:8080/app/hello?name={name}", String.class, "jaehoon");
 
         // status code 200
         Assertions.assertThat(respEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
@@ -38,7 +43,7 @@ class HelloApiTest {
         TestRestTemplate restTemplate = new TestRestTemplate();
 
         ResponseEntity<String> respEntity =
-                restTemplate.getForEntity("http://localhost:8080/hello?name=", String.class);
+                restTemplate.getForEntity("http://localhost:8080/app/hello?name=", String.class);
 
         // status code 500
         Assertions.assertThat(respEntity.getStatusCode()).isEqualTo(HttpStatus.INTERNAL_SERVER_ERROR);
